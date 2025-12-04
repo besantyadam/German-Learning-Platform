@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة الألمانية الشاملة | Deutsch Lernen</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <h1>منصة سفير الألمانية</h1>
+    <p>رحلة متكاملة من A1 (الأساس) إلى C1 (الاحتراف)</p>
+</header>
+
+<nav>
+    <a href="#levels"><i class="fas fa-book-open"></i> المستويات</a>
+    <a href="#lessons"><i class="fas fa-chalkboard-teacher"></i> الدروس</a>
+    <a href="#quiz-section"><i class="fas fa-clipboard-check"></i> الاختبارات</a>
+    <a href="#contact-us"><i class="fas fa-envelope"></i> تواصل</a>
+</nav>
+
+<div class="container">
+    <section id="levels" class="section">
+        <h2>اختر مستوى التعلم</h2>
+        <div class="level-grid">
+            <div class="level-card" onclick="showLevelContent('A1')">
+                <h3>A1: البداية</h3>
+                <p>التحية، الأرقام، الأفعال المنتظمة.</p>
+            </div>
+            <div class="level-card" onclick="showLevelContent('B1')">
+                <h3>B1: المنتصف</h3>
+                <p>صياغة الجمل المعقدة، التعبير عن الرأي.</p>
+            </div>
+            <div class="level-card" onclick="showLevelContent('C1')">
+                <h3>C1: الاحتراف</h3>
+                <p>المصطلحات الأكاديمية، الإتقان الشبه كامل.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="lessons" class="section">
+        <h2>الدروس التعليمية (عينة محتوى)</h2>
+        <div id="content-display">
+            <p class="initial-message">اختر مستوى من الأعلى لعرض الدروس التفاعلية.</p>
+            
+            <div id="A1-content" class="lesson-content hidden">
+                <h3>درس A1: أدوات التعريف (Der, Die, Das)</h3>
+                <div class="slide-box">
+                    <h4>القاعدة المرئية</h4>
+                    <p>لكل اسم في الألمانية أداة، وهي جزء أساسي لا يتغير.</p>
+                    <table class="grammar-table">
+                        <tr><th>الأداة</th><th>الاستخدام</th><th>المثال (النطق الصوتي)</th></tr>
+                        <tr><td>**Der**</td><td>للمذكر</td><td>Der Tisch (الطاولة) <button onclick="playAudio('Der Tisch')"><i class="fas fa-volume-up"></i></button></td></tr>
+                        <tr><td>**Die**</td><td>للمؤنث والجمع</td><td>Die Frau (المرأة) <button onclick="playAudio('Die Frau')"><i class="fas fa-volume-up"></i></button></td></tr>
+                        <tr><td>**Das**</td><td>للمحايد</td><td>Das Buch (الكتاب) <button onclick="playAudio('Das Buch')"><i class="fas fa-volume-up"></i></button></td></tr>
+                    </table>
+                </div>
+            </div>
+
+             <div id="C1-content" class="lesson-content hidden">
+                <h3>درس C1: بناء الجمل المعقدة (Konjunktiv II)</h3>
+                <div class="slide-box">
+                    <h4>الاستخدام التفاعلي</h4>
+                    <p>يستخدم للتعبير عن الأمنيات، الاحتمالات غير الحقيقية، أو الطلبات المؤدبة جداً.</p>
+                    <div class="example-c1">
+                        <span class="german-text">Wenn ich Zeit **hätte**, **würde** ich die Welt bereisen.</span>
+                        <button onclick="playAudio('Wenn ich Zeit hätte, würde ich die Welt bereisen.')"><i class="fas fa-volume-up"></i></button>
+                    </div>
+                    <p class="arabic-translation">**الترجمة:** لو كان لدي وقت، لسافرت حول العالم (غير حقيقي الآن).</p>
+                    <p class="c1-note">هذا الهيكل يتطلب إتقان الترتيب المعقد للأفعال المساعدة في الجمل الفرعية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="quiz-section" class="section">
+        <h2>اختبار تحديد مستوى (نموذج)</h2>
+        <div class="quiz-container">
+            <div id="quiz-area">
+                <p class="quiz-instruction">اضغط على "بدء الاختبار" لتجربة التفاعل.</p>
+                <button id="start-quiz-btn" class="btn" onclick="startQuiz()">بدء الاختبار</button>
+            </div>
+            <p id="quizResult" class="hidden"></p>
+        </div>
+    </section>
+
+    <section id="contact-us" class="section">
+        <h2>تواصل معنا</h2>
+        <p>إذا كان لديك أي اقتراح لتحسين المنصة.</p>
+        <form onsubmit="return handleFormSubmit(event)">
+            <input type="email" placeholder="بريدك الإلكتروني" required>
+            <textarea placeholder="رسالتك" required></textarea>
+            <button type="submit" class="btn">إرسال الرسالة</button>
+        </form>
+    </section>
+</div>
+
+<footer>
+    <p>جميع الحقوق محفوظة &copy; 2023 - 2024</p>
+    <p class="copyright-highlight">هذا المشروع تم تطويره **بالشراكة بين بيسنتي حزقيال  و Gemini AI** تحت إشراف برنامج **سفراء الذكاء الاصطناعي**</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
